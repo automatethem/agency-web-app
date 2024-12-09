@@ -42,4 +42,18 @@ https://esvpn.co.kr/?page=service_guide
 https://agency.marketinganywhere.ai/
 
 대행 고객관리
+
+---
+
+고정 아이피
+
+
+
+고정 아이피 변경으로 지도 리뷰등 등록
+
+정리
+
+
+
+--     
 ```
