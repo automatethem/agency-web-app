@@ -1,0 +1,164 @@
+// basic-express-web-app-main/vercel.json
+
+{
+ "version": 2,
+ "builds": [
+  {
+   "src": "index.js",
+   "use": "@vercel/node",
+   "config": { "includeFiles": ["dist/**"] }
+  }
+ ],
+ "routes": [
+  {
+   "src": "/(.*)",
+   "dest": "index.js"
+  }
+ ]
+}
+
+
+// basic-express-web-app-main/package.json
+
+{
+  "name": "express-static-example",
+  "version": "1.0.0",
+  "description": "A simple Express static file server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "@supabase/supabase-js": "^2.39.3"
+  },
+  "engines": {
+    "node": ">=14.x"
+  }
+}
+
+
+// basic-express-web-app-main/index.js
+
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const helloApi = require('./api/hello/api');
+
+const app = express();
+
+// "/public" 폴더를 정적 파일 제공을 위해 사용
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Middleware 설정
+app.use(bodyParser.json());
+
+/*
+// API 경로를 사용
+// GET /api/hello
+const api = (req, res) => {
+  res.json({ message: 'Hello' });
+};
+*/
+///*
+// API 경로를 사용
+app.use('/api/hello', helloApi);
+//*/
+
+// 서버 실행
+//const PORT = 8080;
+const PORT = 80;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+
+// basic-express-web-app-main/doc/README.md
+
+```
+npm install
+npm start
+```
+
+## 참고 자료
+
+https://stackoverflow.com/a/76263728
+
+
+// basic-express-web-app-main/api/hello/api.js
+
+/*
+//Enabling CORS in a single Node.js Serverless Function
+//https://vercel.com/guides/how-to-enable-cors#enabling-cors-in-a-single-node.js-serverless-function
+const allowCors = fn => async (req, res) => {
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  // another common pattern
+  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  )
+  if (req.method === 'OPTIONS') {
+    res.status(200).end()
+    return
+  }
+  return await fn(req, res)
+}
+*/
+
+// GET /api/hello
+const api = (req, res) => {
+  res.json({ message: 'Hello' });
+};
+
+module.exports = api;
+//module.exports = allowCors(api)
+
+
+// basic-express-web-app-main/public/index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Static Example</title>
+    <link rel="stylesheet" href="style.css"> <!-- CSS 파일 연결 -->
+</head>
+<body>
+    <h1 id="title">Hello, Express Static!</h1>
+    <button id="changeColorButton">Change Color</button>
+
+    <script src="script.js"></script> <!-- JavaScript 파일 연결 -->
+</body>
+</html>
+
+
+// basic-express-web-app-main/public/script.js
+
+document.getElementById('changeColorButton').addEventListener('click', () => {
+    document.getElementById('title').style.backgroundColor = '#234';
+});
+
+
+// basic-express-web-app-main/public/style.css
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
