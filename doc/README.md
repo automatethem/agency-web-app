@@ -79,3 +79,7 @@ https://heeyada1009.modoo.at/
 https://www.daangn.com/kr/local-profile/%EB%8C%80%EA%B5%AC%ED%8E%98%EC%9D%B8%ED%8A%B8-%EB%8F%99%EB%84%A4%EC%97%85%EC%B2%B4-%EB%8C%80%EA%B5%AC%ED%8E%98%EC%9D%B8%ED%8A%B8-1951639/?in=%ED%9A%A8%EB%AA%A9%EB%8F%99-5622
 
 https://m.blog.naver.com/kms1238/223099266147
+
+
+동구신암남로28길8
+
