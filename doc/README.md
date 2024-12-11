@@ -81,6 +81,6 @@ https://www.daangn.com/kr/local-profile/%EB%8C%80%EA%B5%AC%ED%8E%98%EC%9D%B8%ED%
 https://m.blog.naver.com/kms1238/223099266147
 
 
-동구신암남로28길8
+동구 신암 남로 28길 80-15
 
 ![](attach-files/chyungaram.jpeg)
